@@ -3,6 +3,9 @@ use clap::{load_yaml, App};
 use dpull::package_images;
 
 fn main() -> Result<()> {
+    env_logger::init_from_env(
+        env_logger::Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "info"),
+    );
     let yaml = load_yaml!("cli.yaml");
     let matches = App::from(yaml).get_matches();
     let path = matches.value_of("path").expect("missing argument: path");
