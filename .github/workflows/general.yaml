@@ -1,0 +1,21 @@
+name: General
+on: [push]
+jobs:
+  build:
+    name: build binary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args:
+            - "--release"
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: Archive binary
+          path: target/release/gpull
