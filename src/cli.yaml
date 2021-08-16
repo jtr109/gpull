@@ -1,0 +1,17 @@
+name: dpull
+version: "0.0.1"
+author: Ryan Li <kbknapp@gmail.com>
+about: Pull Google Images
+args:
+  - path:
+      about: Path to export images
+      short: p
+      long: path
+      value_name: PATH
+      takes_value: true
+  - images:
+      about: Google image names
+      value_name: IMAGE
+      required: true
+      takes_value: true
+      min_values: 1

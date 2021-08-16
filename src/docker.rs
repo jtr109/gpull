@@ -17,7 +17,7 @@ pub fn tag(image_name: &str, new_name: &str) -> Result<()> {
     Ok(())
 }
 
-pub fn save(path: PathBuf, images: &Vec<String>) -> Result<()> {
+pub fn save(path: PathBuf, images: &Vec<&str>) -> Result<()> {
     Command::new("docker")
         .arg("save")
         .arg("-o")
