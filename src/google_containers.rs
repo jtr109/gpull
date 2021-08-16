@@ -1,13 +1,13 @@
 use anyhow::Result;
 
-pub fn map_image_name(original: &str) -> Result<String> {
+pub fn map_image_name(image: &str) -> Result<String> {
     // example:
     // original: k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.2.0
     // new: registry.aliyuncs.com/google_containers/csi-node-driver-registrar:v2.2.0
-    let tail = original
+    let tail = image
         .split("/")
         .last()
-        .ok_or(anyhow::anyhow!("invalid image name: {}", original))?;
+        .ok_or(anyhow::anyhow!("invalid image name: {}", image))?;
     Ok(format!("registry.aliyuncs.com/google_containers/{}", tail))
 }
 
