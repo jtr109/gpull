@@ -1,6 +1,6 @@
 use anyhow::Result;
 use clap::{load_yaml, App};
-use dpull::package_images;
+use gpull::package_images;
 
 fn main() -> Result<()> {
     env_logger::init_from_env(
